@@ -21,7 +21,6 @@ std::cout << "calling insert" << std::endl;
   
   cart.insert(pairs);
 
-//  std::cout << cart << std::endl;
   cart.inorder();
 
   return 0;

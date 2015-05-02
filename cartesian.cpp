@@ -67,4 +67,6 @@ void cartesian<T>::inorder(node<T> *nd)
   std::cout << nd->data.first << " " << nd->data.second << std::endl;
   inorder(nd->right);
 }
+
+
   

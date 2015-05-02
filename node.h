@@ -12,8 +12,7 @@ struct node
   std::pair<double, T> data;
   node():left(nullptr), right(nullptr){}
   node(std::pair<double, T> dta):left(nullptr),right(nullptr),data(dta){}
-//  template <class U>
-  //friend std::ostream operator<< (std::ostream &out, node *nd);
+
 };
 
 //#include "node.cpp"

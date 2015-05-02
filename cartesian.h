@@ -22,6 +22,7 @@ class cartesian
   node<T> *root;
   node<T>* insert(std::vector<std::pair<double, T> > vct, int start, int end);
   void inorder(node<T> *nd);
+
 };
 
 #include "cartesian.cpp"
