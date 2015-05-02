@@ -48,6 +48,7 @@ node<T>* cartesian<T>::insert(std::vector<std::pair<double, T> > vct, int start,
   return nn;
 }
 
+//public in order call
 template <class T>
 void cartesian<T>::inorder()
 {
@@ -57,7 +58,7 @@ void cartesian<T>::inorder()
   inorder(root);
 }
 
-//in order print function
+//recursive in order print function
 template <class T>
 void cartesian<T>::inorder(node<T> *nd)
 {
@@ -68,5 +69,38 @@ void cartesian<T>::inorder(node<T> *nd)
   inorder(nd->right);
 }
 
+//search function
+template <class T>
+bool cartesian<T>::search(double key)
+{
+  if(root == nullptr) return false;
 
+  return search(root, key);
+}
+
+//recursive search function
+template <class T>
+bool cartesian<T>::search(node<T> *nd, double key)
+{
+  bool retVal = false;
+
+  std::cout << nd->data.first << std::endl;
+
+  if(nd == nullptr) return nullptr;
+
+  if(nd->data.first == key)
+    {
+      retVal = true;
+    }
+  else if(nd->data.first < key)
+    {
+      retVal = search(nd->left, key);
+    }
+  else if(retVal == false)
+    {
+      retVal = search(nd->right, key);
+    }
+
+  return retVal; 
+}
   

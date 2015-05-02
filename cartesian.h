@@ -14,15 +14,15 @@ class cartesian
   int minValue(std::vector<std::pair<double, T> > vct, int start, int end);
   void insert(std::vector<std::pair<double, T> > vct);
   void inorder();
-
   //search
+  bool search(double key);
   //delete key
   //return sorted vector
  private:
   node<T> *root;
   node<T>* insert(std::vector<std::pair<double, T> > vct, int start, int end);
   void inorder(node<T> *nd);
-
+  bool search(node<T> *nd, double key);
 };
 
 #include "cartesian.cpp"
