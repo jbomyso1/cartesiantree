@@ -25,6 +25,8 @@ std::cout << "calling insert" << std::endl;
 
   std::cout << cart.search(12) << std::endl;
   std::cout << cart.search(6) << std::endl;
+  std::cout << cart.search(20) << std::endl;
+  std::cout << cart.search(7) << std::endl;
 
   return 0;
 }

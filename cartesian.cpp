@@ -71,36 +71,41 @@ void cartesian<T>::inorder(node<T> *nd)
 
 //search function
 template <class T>
-bool cartesian<T>::search(double key)
+node<T>* cartesian<T>::search(double key)
 {
-  if(root == nullptr) return false;
+  if(root == nullptr) return nullptr;
 
   return search(root, key);
 }
 
 //recursive search function
 template <class T>
-bool cartesian<T>::search(node<T> *nd, double key)
+node<T>* cartesian<T>::search(node<T> *nd, double key)
 {
-  bool retVal = false;
-
-  std::cout << nd->data.first << std::endl;
-
+  //base case
   if(nd == nullptr) return nullptr;
-
+   
+  //if found return the address
   if(nd->data.first == key)
     {
-      retVal = true;
+      return nd;
     }
-  else if(nd->data.first < key)
+  else
     {
-      retVal = search(nd->left, key);
-    }
-  else if(retVal == false)
-    {
-      retVal = search(nd->right, key);
-    }
+      node<T> *tmp = nullptr;
 
-  return retVal; 
+      //since in min heap, check to see if key is greater than the data to stop checking in that direction
+      if(nd->data.first < key)
+	{
+	  tmp = search(nd->left, key);
+
+	  //if value not found on left, check right
+	  if(tmp == nullptr)
+	    {
+	      tmp = search(nd->right, key);
+	    }
+	}
+      return tmp;
+    }
 }
   
