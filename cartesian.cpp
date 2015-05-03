@@ -109,3 +109,22 @@ node<T>* cartesian<T>::search(node<T> *nd, double key)
     }
 }
   
+template <class T>
+void cartesian<T>::sortVector(std::vector<std::pair<double, T> > &vct)
+{
+  if(root == nullptr) return;
+
+  fillVector(root, vct);
+
+  std::sort(vct.begin(), vct.end(), pair_comp<int>());
+}
+
+template <class T>
+void cartesian<T>::fillVector(node<T> *nd, std::vector<std::pair<double, T> > &vct)
+{
+  if(nd == nullptr) return;
+
+  fillVector(nd->left, vct);
+  vct.push_back(nd->data);
+  fillVector(nd->right,vct);
+}

@@ -4,7 +4,7 @@ int main()
 {
   cartesian<int> cart;
   std::vector<std::pair<double, int> > pairs;
-
+  std::vector<std::pair<double, int> > sortedVct;
   pairs.push_back(std::make_pair(9,9));
   pairs.push_back(std::make_pair(3,3));
   pairs.push_back(std::make_pair(7,7));
@@ -27,6 +27,13 @@ std::cout << "calling insert" << std::endl;
   std::cout << cart.search(6) << std::endl;
   std::cout << cart.search(20) << std::endl;
   std::cout << cart.search(7) << std::endl;
+
+  cart.sortVector(sortedVct);
+
+  for(int i = 0; i < sortedVct.size(); i++)
+    {	
+      std::cout << sortedVct[i].first << std::endl;
+    }
 
   return 0;
 }
