@@ -1,5 +1,14 @@
 #include "cartesian.h"
 
+template <class T>
+cartesian<T>::~cartesian()
+{
+  if(root != nullptr)
+    {
+      cleanTree(root);
+    }
+}
+
 //function finds the minimum value to keep the heap order, and so it'll print inorder the same way it went in, keeping cartesian tree property
 template <class T>
 int cartesian<T>::minValue(std::vector<std::pair<double, T> > vct, int start, int end)
@@ -108,6 +117,42 @@ node<T>* cartesian<T>::search(node<T> *nd, double key)
       return tmp;
     }
 }
+
+template <class T>
+void cartesian<T>::deleteKey(double key)
+{
+  if(root == nullptr) return;
+
+  node<T> *tmp = search(key);
+  std::vector<std::pair<double, T> > tree;
+
+  if(tmp == nullptr)
+    {
+      std::cout << "The key: " << key << " was not found in the tree" << std::endl;
+    }
+  else
+    {
+      fillVector(root, tree);
+      bool found = false;
+      int delPos;
+      int i = 0;
+
+      while(!found)
+	{
+	  if(tree[i].first == key)
+	    {
+	      found = true;
+	      delPos = i;
+	    }
+	  else
+	    {
+	      i++;
+	    }
+	}
+      tree.erase(tree.begin() + delPos);
+      insert(tree);
+    }  
+}
   
 template <class T>
 void cartesian<T>::sortVector(std::vector<std::pair<double, T> > &vct)
@@ -127,4 +172,17 @@ void cartesian<T>::fillVector(node<T> *nd, std::vector<std::pair<double, T> > &v
   fillVector(nd->left, vct);
   vct.push_back(nd->data);
   fillVector(nd->right,vct);
+}
+
+
+template <class T>
+void cartesian<T>::cleanTree(node<T> *nd)
+{
+  if(nd != nullptr)
+    {
+      cleanTree(nd->left);
+      cleanTree(nd->right);
+      delete nd;
+    }
+  nd = nullptr;
 }

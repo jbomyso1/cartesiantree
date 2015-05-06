@@ -23,7 +23,7 @@ std::cout << "calling insert" << std::endl;
 
   cart.inorder();
 
-  std::cout << cart.search(12) << std::endl;
+  std::cout << cart.search(9) << std::endl;
   std::cout << cart.search(6) << std::endl;
   std::cout << cart.search(20) << std::endl;
   std::cout << cart.search(7) << std::endl;
@@ -34,6 +34,11 @@ std::cout << "calling insert" << std::endl;
     {	
       std::cout << sortedVct[i].first << std::endl;
     }
+
+  cart.deleteKey(6);
+  cart.deleteKey(9);
+
+  cart.inorder();
 
   return 0;
 }

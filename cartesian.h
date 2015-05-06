@@ -12,12 +12,17 @@ template <class T>
 class cartesian
 {
  public:
+  ~cartesian();
   int minValue(std::vector<std::pair<double, T> > vct, int start, int end);
   void insert(std::vector<std::pair<double, T> > vct);
   void inorder();
   node<T>* search(double key);
   //delete key
+  void deleteKey(double key);
   void sortVector(std::vector<std::pair<double, T> > &vct);
+  void cleanTree(node<T> *nd);
+
+
  private:
   node<T> *root;
   node<T>* insert(std::vector<std::pair<double, T> > vct, int start, int end);
