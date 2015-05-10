@@ -6,6 +6,8 @@
 #include <vector>
 #include <utility>
 #include <limits>
+#include <queue>
+#include <functional>
 #include <algorithm>
 
 template <class T>

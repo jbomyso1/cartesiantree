@@ -40,5 +40,11 @@ std::cout << "calling insert" << std::endl;
 
   cart.inorder();
 
+  std::cout << std::endl;
+
+  cart.deleteKey(15);
+
+  cart.inorder();
+
   return 0;
 }

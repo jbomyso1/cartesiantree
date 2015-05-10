@@ -145,10 +145,9 @@ void cartesian<T>::deleteKey(double key)
 	      delPos = i;
 	    }
 	  else
-	    {
-	      i++;
-	    }
+	    i++;
 	}
+      std::cout << "Found " << key << ", deleting now." << std::endl;
       tree.erase(tree.begin() + delPos);
       insert(tree);
     }  
@@ -161,7 +160,7 @@ void cartesian<T>::sortVector(std::vector<std::pair<double, T> > &vct)
 
   fillVector(root, vct);
 
-  std::sort(vct.begin(), vct.end(), pair_comp<int>());
+  std::sort(vct.begin(), vct.end(), pair_comp<double>());
 }
 
 template <class T>
